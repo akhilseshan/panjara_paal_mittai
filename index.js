@@ -27,13 +27,12 @@ io.on('connection', (socket) => {
     socket.on('chat', function(data){
         // console.log(data);
         //io.sockets[i].emit('chat', data);
-        io.to("roomA").emit('chat',data)
+        io.in("roomA").emit('chat',data)
     });
 
     // Handle typing event
     socket.on('typing', function(data){
-        i = users[0]
-        io.to(i).emit('typing', data);
+        io.to("roomA").emit('typing', data);
     });
 
 });
